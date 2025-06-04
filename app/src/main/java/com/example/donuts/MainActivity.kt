@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import com.example.donuts.screens.AddToCart
 import com.example.donuts.screens.HomeScreen
 import com.example.donuts.screens.OnBoarding
 
@@ -13,7 +14,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             //OnBoarding()
-            HomeScreen()
+            //HomeScreen()
+            AddToCart()
         }
     }
 }

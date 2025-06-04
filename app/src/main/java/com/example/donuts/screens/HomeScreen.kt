@@ -43,7 +43,7 @@ fun HomeScreen() {
         modifier = Modifier
             .background(GrayColor)
             .fillMaxSize()
-            .padding(start = (0.08 * width).dp, top = (0.085 * height).dp, )
+            .padding(start = (0.08 * width).dp, top = (0.085 * height).dp)
             .verticalScroll(rememberScrollState())
 
     ) {
