@@ -4,18 +4,23 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
@@ -33,6 +38,7 @@ import com.example.donuts.ui.theme.DarkPinkColor
 import com.example.donuts.ui.theme.GrayColor
 import com.example.donuts.ui.theme.Inter
 import com.example.donuts.ui.theme.LightBlueColor
+import com.example.donuts.ui.theme.LightPinkColor
 
 
 @Composable
@@ -70,11 +76,22 @@ fun HomeScreen() {
                     fontSize = 15.sp,
                 )
             }
-            Image(
-                painter = painterResource(id = R.drawable.search),
-                contentDescription = "search",
-                modifier = Modifier.padding(end = (0.083 * width).dp)
-            )
+            Box(
+                modifier = Modifier
+                    .padding(end = (0.083 * width).dp)
+                    .size(45.dp)
+                    .background(
+                        LightPinkColor,
+                        shape = RoundedCornerShape(15.dp)
+                    )
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.search),
+                    contentDescription = "search",
+                    tint = DarkPinkColor,
+                    modifier = Modifier.align(Alignment.Center)
+                )
+            }
         }
         SpacerVertical(58)
         Text(
@@ -174,24 +191,28 @@ fun HomeScreen() {
                 .fillMaxWidth()
                 .padding(end = (0.08 * width).dp)
         ) {
-            Image(
+            Icon(
                 painter = painterResource(id = R.drawable.home),
+                tint = DarkPinkColor,
                 contentDescription = "home",
             )
-            Image(
+            Icon(
                 painter = painterResource(id = R.drawable.heart),
+                tint = DarkPinkColor,
                 contentDescription = "heart",
             )
-            Image(
+            Icon(
                 painter = painterResource(id = R.drawable.notification),
+                tint = DarkPinkColor,
                 contentDescription = "notification",
             )
             Image(
                 painter = painterResource(id = R.drawable.buy),
                 contentDescription = "buy",
             )
-            Image(
+            Icon(
                 painter = painterResource(id = R.drawable.account),
+                tint = DarkPinkColor,
                 contentDescription = "account",
             )
         }

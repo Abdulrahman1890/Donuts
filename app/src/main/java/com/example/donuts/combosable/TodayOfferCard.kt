@@ -11,11 +11,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -25,6 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.donuts.R
+import com.example.donuts.ui.theme.DarkPinkColor
 import com.example.donuts.ui.theme.Inter
 import com.example.donuts.ui.theme.LightBlueColor
 
@@ -38,6 +41,7 @@ fun TodayOfferCard(color: Color,image: Int, title: String, description: String) 
         Box(
             modifier = Modifier
                 .fillMaxHeight()
+                .shadow(elevation = 6.dp, shape = RoundedCornerShape(20.dp))
                 .width(193.dp)
                 .background(
                     color,
@@ -47,11 +51,23 @@ fun TodayOfferCard(color: Color,image: Int, title: String, description: String) 
             Column(
                 modifier = Modifier.padding(15.dp)
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.favorate),
-                    contentDescription = "favorite",
-                )
-                SpacerVertical(155)
+                Box(
+                    modifier = Modifier
+                        .padding(bottom = 20.dp, end = 40.dp)
+                        .size(35.dp)
+                        .background(
+                            Color.White,
+                            shape = RoundedCornerShape(30.dp)
+                        )
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.icon_heart),
+                        contentDescription = "favorite",
+                        tint = DarkPinkColor,
+                        modifier = Modifier.align(Alignment.Center).padding(8.dp)
+                    )
+                }
+                SpacerVertical(135)
                 Text(
                     text = title,
                     color = Color.Black,
@@ -71,13 +87,13 @@ fun TodayOfferCard(color: Color,image: Int, title: String, description: String) 
                     fontFamily = Inter,
                     fontWeight = FontWeight.Normal,
                     fontSize = 12.5.sp,
+                    letterSpacing = 0.5f.sp
                 )
                 SpacerVertical(8)
                 Row(
                     verticalAlignment = Alignment.Bottom,
                     modifier = Modifier
                         .align(Alignment.End)
-                        .offset(x = 15.dp)
                 ) {
                     Text(
                         text = "\$20",
@@ -110,9 +126,11 @@ fun TodayOfferCard(color: Color,image: Int, title: String, description: String) 
             painter = painterResource(image),
             contentDescription = "donut",
             modifier = Modifier
+                .padding(bottom = 100.dp)
                 .size(137.dp)
+                .shadow(elevation = 20.dp, shape = RoundedCornerShape(35.dp))
                 .align(Alignment.CenterEnd)
-                .offset(y = (-50).dp)
+
         )
     }
 

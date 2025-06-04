@@ -1,7 +1,9 @@
 package com.example.donuts.screens
 
+import android.graphics.Paint.Align
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,6 +16,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -65,8 +68,8 @@ fun AddToCart() {
                 .fillMaxSize()
                 .padding(top = 490.dp)
                 .background(
-                    LightGrayColor,
-                    shape = RoundedCornerShape(40.dp)
+                    Color.White,
+                    shape = RoundedCornerShape(topStart = 40.dp, topEnd = 40.dp)
                 ),
         ) {
             Column(
@@ -94,7 +97,8 @@ fun AddToCart() {
                 Text(
                     text = "These soft, cake-like Strawberry Frosted\nDonuts feature fresh strawberries and a\ndelicious fresh strawberry glaze frosting. Pretty\nenough for company and the perfect treat to\nsatisfy your sweet tooth.",
                     color = Color.Black,
-                    modifier = Modifier.alpha(0.6f),
+                    modifier = Modifier.alpha(0.55f),
+                    letterSpacing = 0.5f.sp,
                     fontFamily = Inter,
                     fontWeight = FontWeight.Medium,
                     fontSize = 16.sp,
@@ -110,30 +114,63 @@ fun AddToCart() {
                 )
                 SpacerVertical(19)
                 Row {
-                    Image(
-                        painter = painterResource(id = R.drawable.minus),
-                        contentDescription = "minus",
+                    Box(
                         modifier = Modifier
                             .size(45.dp)
-                            .shadow(elevation = 300.dp, shape = RoundedCornerShape(15.dp))
-                    )
+                            .shadow(elevation = 2.dp, shape = RoundedCornerShape(15.dp))
+                            .background(
+                                Color.White,
+                                shape = RoundedCornerShape(15.dp)
+                            )
+                    ) {
+                        Text(
+                            text = "-",
+                            color = Color.Black,
+                            fontFamily = Inter,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 28.sp,
+                            modifier = Modifier.align(Alignment.Center).padding(bottom = 5.dp)
+                        )
+                    }
                     SpacerHorizontal(20)
-                    Image(
-                        painter = painterResource(id = R.drawable.one),
-                        contentDescription = "one",
+                    Box(
                         modifier = Modifier
                             .size(45.dp)
-                            .shadow(elevation = 300.dp, shape = RoundedCornerShape(15.dp))
-
-                    )
+                            .shadow(elevation = 2.dp, shape = RoundedCornerShape(15.dp))
+                            .background(
+                                Color.White,
+                                shape = RoundedCornerShape(15.dp)
+                            )
+                    ) {
+                        Text(
+                            text = "1",
+                            color = Color.Black,
+                            fontFamily = Inter,
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 18.sp,
+                            modifier = Modifier.align(Alignment.Center)
+                        )
+                    }
                     SpacerHorizontal(20)
-                    Image(
-                        painter = painterResource(id = R.drawable.plus),
-                        contentDescription = "plus",
+                    Box(
                         modifier = Modifier
                             .size(45.dp)
-                            .shadow(elevation = 300.dp, shape = RoundedCornerShape(15.dp))
-                    )
+                            .shadow(elevation = 2.dp, shape = RoundedCornerShape(15.dp))
+                            .background(
+                                Color.Black,
+                                shape = RoundedCornerShape(15.dp)
+                            )
+                    ) {
+                        Text(
+                            text = "+",
+                            color = Color.White,
+                            fontFamily = Inter,
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 28.sp,
+                            modifier = Modifier.align(Alignment.Center).padding(bottom = 5.dp)
+                        )
+                    }
+                    SpacerHorizontal(20)
                 }
                 SpacerVertical(47)
                 Row(
@@ -169,18 +206,24 @@ fun AddToCart() {
                 }
             }
         }
-        Box(
-            modifier = Modifier
-                .align(Alignment.CenterEnd)
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.favourite_heart),
-                contentDescription = "food plate",
+            Box(
                 modifier = Modifier
-                    .size(145.dp)
-                    .shadow(elevation = 300.dp, shape = CircleShape)
-            )
-        }
+                    .align(Alignment.CenterEnd)
+                    .padding(bottom = 20.dp, end = 40.dp)
+                    .size(45.dp)
+                    .shadow(elevation = 2.dp, shape = RoundedCornerShape(15.dp))
+                    .background(
+                        Color.White,
+                        shape = RoundedCornerShape(15.dp)
+                    )
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.icon_heart),
+                    contentDescription = "favorite",
+                    tint = DarkPinkColor,
+                    modifier = Modifier.align(Alignment.Center)
+                )
+            }
 
 
     }

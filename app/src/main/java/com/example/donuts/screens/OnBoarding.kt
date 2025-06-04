@@ -4,8 +4,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -29,7 +31,7 @@ import com.example.donuts.ui.theme.NormalPinkColor
 fun OnBoarding() {
     val width = LocalConfiguration.current.screenWidthDp
     val height = LocalConfiguration.current.screenHeightDp
-    Box(
+    Column (
         modifier = Modifier
             .background(LightPinkColor)
             .fillMaxSize()
@@ -48,7 +50,8 @@ fun OnBoarding() {
             fontSize = 54.sp,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = (0.083 * width).dp, top = (0.47 * height).dp)
+                .padding(start = (0.083 * width).dp)
+                .offset(y = (-140).dp)
         )
 
         Text(
@@ -59,15 +62,16 @@ fun OnBoarding() {
             fontSize = 18.sp,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 40.dp, top = 690.dp)
+                .padding(start = 40.dp)
+                .offset(y = (-120).dp)
         )
         Box(
             modifier = Modifier
-                .padding(start = 50.dp, end = 50.dp, top = 850.dp)
+                .offset(y = (-50).dp)
+                .padding(start = 50.dp, end = 50.dp)
                 .clip(RoundedCornerShape(50.dp))
                 .background(Color.White)
                 .clickable {}
-
         ) {
             Text(
                 text = "Get Started",
